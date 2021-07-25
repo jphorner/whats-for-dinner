@@ -3,34 +3,63 @@ var sideButton = document.querySelector('#sideButton');
 var mainDishButton = document.querySelector('#mainDishButton');
 var dessertButton = document.querySelector('#dessertButton');
 var entireMealButton = document.querySelector('#entireMealButton');
+var clearButton = document.querySelector('.clear-button');
 
 var generatedRecipe = document.querySelector('.generated-recipe');
 var cookpotImage = document.querySelector('.cookpot-image');
 var italicText = document.querySelector('.italic-text');
 
 letsCookButton.addEventListener('click', generateRecipe);
+clearButton.addEventListener('click', clearSelection);
 
+function clearSelection() {
+  cookpotImage.classList.remove('hidden');
+  italicText.classList.add('hidden');
+  generatedRecipe.classList.add('hidden');
+  clearButton.classList.add('hidden');
+  uncheckButtons();
+}
 
 function generateRecipe() {
   cookpotImage.classList.add('hidden');
   italicText.classList.remove('hidden');
   generatedRecipe.classList.remove('hidden');
+  clearButton.classList.remove('hidden');
   if (sideButton.checked) {
     generateSideDish();
   } else if (mainDishButton.checked) {
-    console.log('main dish checked');
+    generateMainDish();
   } else if (dessertButton.checked) {
-    console.log('dessert button checked');
+    generateDessert();
   } else if (entireMealButton.checked) {
-    console.log('entire meal checked');
+    generateEntireMeal();
   } else {
-    console.log('no selection');
+    italicText.classList.add('hidden');
+    generatedRecipe.innerHTML = `<h2><i>Please select a meal option to continue.</i></h2>`
   }
+};
+
+function generateDessert() {
+  generatedRecipe.innerHTML = `
+  <h2>${desserts[getRandomIndex(desserts)]}!</h2>
+  `
+};
+
+function generateEntireMeal() {
+  generatedRecipe.innerHTML = `
+  <h2>${mainDishes[getRandomIndex(mainDishes)]} with a side of ${sides[getRandomIndex(sides)]} and ${desserts[getRandomIndex(desserts)]} for dessert!</h2>
+  `
+};
+
+function generateMainDish() {
+  generatedRecipe.innerHTML = `
+  <h2>${mainDishes[getRandomIndex(mainDishes)]}!</h2>
+  `
 };
 
 function generateSideDish() {
   generatedRecipe.innerHTML = `
-  <h2>${sides[getRandomIndex(sides)]}</h2>
+  <h2>${sides[getRandomIndex(sides)]}!</h2>
   `
 }
 
@@ -38,30 +67,36 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
 
+function uncheckButtons() {
+  sideButton.checked = false;
+  mainDishButton.checked = false;
+  dessertButton.checked = false;
+  entireMealButton.checked = false;
+}
 
 var sides = [
-  'mashed potatoes',
-  'pommes frites',
-  'roasted brussel sprouts',
-  'macaroni',
-  'cole slaw',
-  'baked beans',
-  'corn on the cob',
-  'sweet potatoes',
-  'an entire fried bicycle',
-  'a wedge salad',
-  'mozzarella sticks',
-  'gazpacho',
-  'edamame',
-  'potato salad',
-  'tempura vegetables',
-  'a baked potato',
-  'fried zucchini',
-  'fried pickles',
-  'samosas',
-  'ceviche',
-  'a dill pickle',
-  'miso soup'
+  'Mashed Potatoes',
+  'Pommes Frites',
+  'Toasted Brussel Sprouts',
+  'Macaroni',
+  'Cole Slaw',
+  'Baked Beans',
+  'Corn on the Cob',
+  'Sweet Potatoes',
+  'An Entire Fried Bicycle',
+  'A Wedge Salad',
+  'Mozzarella Sticks',
+  'Gazpacho',
+  'Edamame',
+  'Potato Salad',
+  'Tempura Vegetables',
+  'A Baked Potato',
+  'Fried Zucchini',
+  'Fried Pickles',
+  'Samosas',
+  'Ceviche',
+  'A Dill Pickle',
+  'Miso Soup'
 ];
 
 var mainDishes = [
@@ -90,22 +125,21 @@ var mainDishes = [
 ];
 
 var desserts = [
-  'tiramisu',
-  'red bean mochi',
-  'ice cream mochi',
-  'a chocolate chip cookie',
-  'vanilla ice cream',
-  'cookies and cream ice cream',
-  'a churro',
-  'bananas foster',
-  'an ice cream sundae',
-  'cherry cobbler',
-  'blueberry cobbler',
+  'Tiramisu',
+  'Red Bean Mochi',
+  'Ice Cream Mochi',
+  'A chocolate chip cookie',
+  'Vanilla ice cream',
+  'Cookies and cream ice cream',
+  'A churro',
+  'Bananas foster',
+  'An ice cream sundae',
+  'Cherry cobbler',
+  'Blueberry cobbler',
   'German chocolate cake',
-  'spumoni ice cream',
-  'student loan forgiveness',
-  'sweet, sweet revenge',
-  'chocolate mousse',
-  'carrot cake',
-  'pineapple upside-down cake'
+  'Spumoni ice cream',
+  'Sweet, sweet revenge',
+  'Chocolate mousse',
+  'Carrot cake',
+  'Pineapple upside-down cake'
 ];
