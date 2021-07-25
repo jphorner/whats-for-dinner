@@ -1,10 +1,36 @@
+<!DOCTYPE html>
 <html>
   <head>
     <link rel="stylesheet" href="./styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   </head>
   <body>
-    
+    <nav class="navigation">
+      <h3>What's for Dinner?</h3>
+      <button class="add-recipe">ADD A RECIPE</button>
+    </nav>
+    <section class="content-boxes">
+      <article class="box" id="selection-box">
+        <ul>
+          <h2>What are you looking for?<div class="asterisk"> *</div></h2>
+          <h3>
+          <li><input type="radio" id="sideButton" name="food-selection" value="Side">
+          <label for="sideButton">Side</label>
+          <li><input type="radio" id="mainDishButton" name="food-selection" value="Main Dish">
+          <label for="mainDishButton">Main Dish</label>
+          <li><input type="radio" id="dessertButton" name="food-selection" value="Dessert">
+          <label for="dessertButton">Dessert</label>
+          <li><input type="radio" id="entireMealButton" name="food-selection" value="Entire Meal">
+          <label for="entireMealButton">Entire Meal</label>
+          <li><button class="confirm-selection">LET'S COOK!</button>
+        </h3>
+      </ul>
+      </article>
+      <article class="box" id="recipe-box">
+        <section class="generated-recipe hidden"><i>You should make:</i></section>
+        <div class="cookpot-image"></div>
+      </article>
+    </section>
   </body>
   <script type="text/javascript" src="main.js"></script>
 </html>
