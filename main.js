@@ -13,18 +13,12 @@ letsCookButton.addEventListener('click', generateRecipe);
 clearButton.addEventListener('click', clearSelection);
 
 function clearSelection() {
-  cookpotImage.classList.remove('hidden');
-  italicText.classList.add('hidden');
-  generatedRecipe.classList.add('hidden');
-  clearButton.classList.add('hidden');
+  revertRecipeBox();
   uncheckButtons();
 }
 
 function generateRecipe() {
-  cookpotImage.classList.add('hidden');
-  italicText.classList.remove('hidden');
-  generatedRecipe.classList.remove('hidden');
-  clearButton.classList.remove('hidden');
+  hideDefaultElements();
   if (sideButton.checked) {
     generateSideDish();
   } else if (mainDishButton.checked) {
@@ -67,12 +61,38 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
 
+function hideDefaultElements() {
+  hide(cookpotImage);
+  show(italicText);
+  show(generatedRecipe);
+  show(clearButton);
+};
+
+function revertRecipeBox() {
+  show(cookpotImage);
+  hide(italicText);
+  hide(generatedRecipe);
+  hide(clearButton);
+}
+
 function uncheckButtons() {
   sideButton.checked = false;
   mainDishButton.checked = false;
   dessertButton.checked = false;
   entireMealButton.checked = false;
 }
+
+/// HIDE & SHOW FUNCTIONS ///
+
+function hide(element) {
+  element.classList.add('hidden');
+};
+
+function show(element) {
+  element.classList.remove('hidden');
+};
+
+/// DATA ARRAYS ///
 
 var sides = [
   'Mashed Potatoes',
