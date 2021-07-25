@@ -6,14 +6,37 @@ var entireMealButton = document.querySelector('#entireMealButton');
 
 var generatedRecipe = document.querySelector('.generated-recipe');
 var cookpotImage = document.querySelector('.cookpot-image');
+var italicText = document.querySelector('.italic-text');
 
-letsCookButton.addEventListener('click', displayRecipe);
+letsCookButton.addEventListener('click', generateRecipe);
 
-function displayRecipe() {
-  console.log(event);
+
+function generateRecipe() {
   cookpotImage.classList.add('hidden');
+  italicText.classList.remove('hidden');
   generatedRecipe.classList.remove('hidden');
+  if (sideButton.checked) {
+    generateSideDish();
+  } else if (mainDishButton.checked) {
+    console.log('main dish checked');
+  } else if (dessertButton.checked) {
+    console.log('dessert button checked');
+  } else if (entireMealButton.checked) {
+    console.log('entire meal checked');
+  } else {
+    console.log('no selection');
+  }
+};
+
+function generateSideDish() {
+  generatedRecipe.innerHTML = `
+  <h2>${sides[getRandomIndex(sides)]}</h2>
+  `
 }
+
+function getRandomIndex(array) {
+  return Math.floor(Math.random() * array.length);
+};
 
 
 var sides = [
