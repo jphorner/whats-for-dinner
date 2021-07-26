@@ -18,6 +18,7 @@
 ## Contributions
 
 - [Joshua Horner](https://github.com/jphorner)
+
 *Joshua Horner is a student of front-end engineering at the Turing School of Software & Design.*
 
 Project spec and assets provided by the [Turing School of Software & Design](https://frontend.turing.edu/)
