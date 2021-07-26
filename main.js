@@ -1,36 +1,62 @@
-var letsCookButton = document.querySelector('.confirm-selection');
-var sideButton = document.querySelector('#sideButton');
-var mainDishButton = document.querySelector('#mainDishButton');
+// BUTTON SELECTORS //
+
+var addRecipeButton = document.querySelector('.add-recipe');
+var clearButton = document.querySelector('.clear-button');
 var dessertButton = document.querySelector('#dessertButton');
 var entireMealButton = document.querySelector('#entireMealButton');
-var clearButton = document.querySelector('.clear-button');
+var letsCookButton = document.querySelector('.confirm-selection');
+var mainDishButton = document.querySelector('#mainDishButton');
+var sideButton = document.querySelector('#sideButton');
+var submitRecipeButton = document.querySelector('.submit-recipe-button');
 
-var generatedRecipe = document.querySelector('.generated-recipe');
+// PAGE ELEMENT SELECTORS //
+
 var cookpotImage = document.querySelector('.cookpot-image');
+var contentBoxes = document.querySelector('.content-boxes');
+var generatedRecipe = document.querySelector('.generated-recipe');
 var italicText = document.querySelector('.italic-text');
+var recipeForm = document.querySelector('.recipe-form');
+var recipeNameField = document.querySelector('#recipe-name-field');
+var recipeTypeField = document.querySelector('#recipe-type-field');
 
-letsCookButton.addEventListener('click', generateRecipe);
+// EVENT LISTENERS //
+
+addRecipeButton.addEventListener('click', displayForm);
 clearButton.addEventListener('click', clearSelection);
+letsCookButton.addEventListener('click', generateRecipe);
+submitRecipeButton.addEventListener('click', addRecipe);
+
+// MAIN FUNCTIONS //
+
+function addRecipe() {
+  submitRecipeButton.classList.remove('red');
+  if (!recipeTypeField.value) {
+    submitRecipeButton.classList.add('red');
+  } else if (recipeTypeField.value === 'Side') {
+    sides.push(recipeNameField.value);
+    hideDefaultElements();
+    generatedRecipe.innerHTML = `<h2>${sides[sides.length -1]}!</h2>`
+    recipeTypeField.value = '';
+  } else if (recipeTypeField.value = 'Main Dish') {
+    mainDishes.push(recipeNameField.value);
+    hideDefaultElements();
+    generatedRecipe.innerHTML = `<h2>${mainDishes[mainDishes.length -1]}!</h2>`
+    recipeTypeField.value = '';
+  } else if (recipeTypeField.value === 'Dessert') {
+    desserts.push(recipeNameField.value);
+    hideDefaultElements();
+    generatedRecipe.innerHTML = `<h2>${desserts[desserts.length -1]}!</h2>`
+    recipeTypeField.value = '';
+  }
+};
 
 function clearSelection() {
   revertRecipeBox();
   uncheckButtons();
 }
 
-function generateRecipe() {
-  hideDefaultElements();
-  if (sideButton.checked) {
-    generateSideDish();
-  } else if (mainDishButton.checked) {
-    generateMainDish();
-  } else if (dessertButton.checked) {
-    generateDessert();
-  } else if (entireMealButton.checked) {
-    generateEntireMeal();
-  } else {
-    italicText.classList.add('hidden');
-    generatedRecipe.innerHTML = `<h2><i>Please select a meal option to continue.</i></h2>`
-  }
+function displayForm() {
+  show(recipeForm);
 };
 
 function generateDessert() {
@@ -51,15 +77,31 @@ function generateMainDish() {
   `
 };
 
+function generateRecipe() {
+  hideDefaultElements();
+  if (sideButton.checked) {
+    generateSideDish();
+  } else if (mainDishButton.checked) {
+    generateMainDish();
+  } else if (dessertButton.checked) {
+    generateDessert();
+  } else if (entireMealButton.checked) {
+    generateEntireMeal();
+  } else {
+    italicText.classList.add('hidden');
+    generatedRecipe.innerHTML = `<h2><i>Please select a meal option to continue.</i></h2>`
+  }
+};
+
+function getRandomIndex(array) {
+  return Math.floor(Math.random() * array.length);
+};
+
 function generateSideDish() {
   generatedRecipe.innerHTML = `
   <h2>${sides[getRandomIndex(sides)]}!</h2>
   `
 }
-
-function getRandomIndex(array) {
-  return Math.floor(Math.random() * array.length);
-};
 
 function hideDefaultElements() {
   hide(cookpotImage);

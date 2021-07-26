@@ -12,7 +12,7 @@ h2 {
 h3 {
   color: #000808;
   padding-top: 5px;
-  padding-left: 20px;
+  padding-left: 0px;
   margin: 0px;
   border: 0px;
 }
@@ -28,6 +28,7 @@ nav {
   width: auto;
   background-color: #0fb9b1;
   padding-top: 10px;
+  padding-left: 20px;
   margin: 0px;
   border: 0px;
 }
@@ -46,6 +47,11 @@ ul {
   margin-right: 20px;
   border: 0px;
   border-radius: 3px;
+}
+
+.add-recipe:hover {
+  background-color: #048c85;
+  color: white;
 }
 
 .asterisk {
@@ -118,9 +124,7 @@ ul {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
-  padding-top: 4em;
-  padding-left: 5em;
-  padding-right: 5em;
+  padding: 5em;
 }
 
 .cookpot-image {
@@ -130,29 +134,88 @@ ul {
   position: relative;
   height: 180px;
   width: 140px;
-  top: 5%
+  top: 62%
+  bottom: 40%;
 }
 
 .generated-recipe {
   display: flex;
   justify-content: center;
+  margin: 1em;
 }
 
 .hidden {
   display: none;
 }
 
-#selection-box {
-  margin-right: 4em;
+.radio-buttons {
+  padding-left: 2em;
+}
+
+.recipe-form {
+  height: 30px;
+  padding-top: 15px;
+  padding-left: 20px;
+  padding-bottom: 5px;
+  background-color: rgba(225, 225, 225, .9);
+}
+
+.submit-recipe-button {
+  padding: 4px;
+  margin-left: 10px;
+  background-color: #0fb9b1;
+  border: 0px;
+  border-radius: 5px;
+}
+
+.red {
+  background-color: #CC1E03;
+  color: white;
+  border: 0px;
+  border-radius: 5px;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 #recipe-box {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
-  position: relative;
-  left: 0px;
-  border: 20px;
+  padding-left
+  margin-left: 3em;
+}
+
+#recipe-name-field {
+  height: 20px;
+  border-color: #95a5a6;
+  border: 2px;
+  border-radius: 2px;
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+#recipe-prompt {
+  text-align: left;
+  margin-left: 1em;
+}
+
+#recipe-type-field {
+  height: 20px;
+  border-color: #95a5a6;
+  border: 2px;
+  border-radius: 2px;
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+#selection-box {
+  background-color: rgba(225, 225, 225, .9);
+  margin-right: 4em;
 }
 
 /*
