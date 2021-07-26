@@ -30,24 +30,23 @@ submitRecipeButton.addEventListener('click', addRecipe);
 
 function addRecipe() {
   submitRecipeButton.classList.remove('red');
-  if (!recipeTypeField.value) {
+  if (!recipeTypeField.value || !recipeNameField.value) {
     submitRecipeButton.classList.add('red');
   } else if (recipeTypeField.value === 'Side') {
     sides.push(recipeNameField.value);
     hideDefaultElements();
     generatedRecipe.innerHTML = `<h2>${sides[sides.length -1]}!</h2>`
-    recipeTypeField.value = '';
-  } else if (recipeTypeField.value = 'Main Dish') {
+  } else if (recipeTypeField.value === 'Main Dish') {
     mainDishes.push(recipeNameField.value);
     hideDefaultElements();
     generatedRecipe.innerHTML = `<h2>${mainDishes[mainDishes.length -1]}!</h2>`
-    recipeTypeField.value = '';
   } else if (recipeTypeField.value === 'Dessert') {
     desserts.push(recipeNameField.value);
     hideDefaultElements();
     generatedRecipe.innerHTML = `<h2>${desserts[desserts.length -1]}!</h2>`
-    recipeTypeField.value = '';
-  }
+  };
+
+  recipeTypeField.value = '';
 };
 
 function clearSelection() {
@@ -60,9 +59,7 @@ function displayForm() {
 };
 
 function generateDessert() {
-  generatedRecipe.innerHTML = `
-  <h2>${desserts[getRandomIndex(desserts)]}!</h2>
-  `
+  generatedRecipe.innerHTML = `<h2>${desserts[getRandomIndex(desserts)]}!</h2>`
 };
 
 function generateEntireMeal() {
@@ -89,7 +86,7 @@ function generateRecipe() {
     generateEntireMeal();
   } else {
     italicText.classList.add('hidden');
-    generatedRecipe.innerHTML = `<h2><i>Please select a meal option to continue.</i></h2>`
+    generatedRecipe.innerHTML = `<h2><i>Please select a meal option to continue.</i></h2>`;
   }
 };
 
@@ -98,9 +95,7 @@ function getRandomIndex(array) {
 };
 
 function generateSideDish() {
-  generatedRecipe.innerHTML = `
-  <h2>${sides[getRandomIndex(sides)]}!</h2>
-  `
+  generatedRecipe.innerHTML = `<h2>${sides[getRandomIndex(sides)]}!</h2>`;
 }
 
 function hideDefaultElements() {
@@ -136,29 +131,24 @@ function show(element) {
 
 /// DATA ARRAYS ///
 
-var sides = [
-  'Mashed Potatoes',
-  'Pommes Frites',
-  'Toasted Brussel Sprouts',
-  'Macaroni',
-  'Cole Slaw',
-  'Baked Beans',
-  'Corn on the Cob',
-  'Sweet Potatoes',
-  'An Entire Fried Bicycle',
-  'A Wedge Salad',
-  'Mozzarella Sticks',
-  'Gazpacho',
-  'Edamame',
-  'Potato Salad',
-  'Tempura Vegetables',
-  'A Baked Potato',
-  'Fried Zucchini',
-  'Fried Pickles',
-  'Samosas',
-  'Ceviche',
-  'A Dill Pickle',
-  'Miso Soup'
+var desserts = [
+  'Tiramisu',
+  'Red Bean Mochi',
+  'Ice Cream Mochi',
+  'A chocolate chip cookie',
+  'Vanilla ice cream',
+  'Cookies and cream ice cream',
+  'A churro',
+  'Bananas foster',
+  'An ice cream sundae',
+  'Cherry cobbler',
+  'Blueberry cobbler',
+  'German chocolate cake',
+  'Spumoni ice cream',
+  'Sweet, sweet revenge',
+  'Chocolate mousse',
+  'Carrot cake',
+  'Pineapple upside-down cake'
 ];
 
 var mainDishes = [
@@ -186,22 +176,27 @@ var mainDishes = [
   'A knuckle sandwich'
 ];
 
-var desserts = [
-  'Tiramisu',
-  'Red Bean Mochi',
-  'Ice Cream Mochi',
-  'A chocolate chip cookie',
-  'Vanilla ice cream',
-  'Cookies and cream ice cream',
-  'A churro',
-  'Bananas foster',
-  'An ice cream sundae',
-  'Cherry cobbler',
-  'Blueberry cobbler',
-  'German chocolate cake',
-  'Spumoni ice cream',
-  'Sweet, sweet revenge',
-  'Chocolate mousse',
-  'Carrot cake',
-  'Pineapple upside-down cake'
+var sides = [
+  'Mashed Potatoes',
+  'Pommes Frites',
+  'Toasted Brussel Sprouts',
+  'Macaroni',
+  'Cole Slaw',
+  'Baked Beans',
+  'Corn on the Cob',
+  'Sweet Potatoes',
+  'An Entire Fried Bicycle',
+  'A Wedge Salad',
+  'Mozzarella Sticks',
+  'Gazpacho',
+  'Edamame',
+  'Potato Salad',
+  'Tempura Vegetables',
+  'A Baked Potato',
+  'Fried Zucchini',
+  'Fried Pickles',
+  'Samosas',
+  'Ceviche',
+  'A Dill Pickle',
+  'Miso Soup'
 ];

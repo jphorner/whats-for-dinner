@@ -25,7 +25,6 @@ li {
 nav {
   display: grid;
   height: 2.6em;
-  width: auto;
   background-color: #0fb9b1;
   padding-top: 10px;
   padding-left: 20px;
@@ -66,7 +65,6 @@ ul {
   margin-left: 10%;
   margin-right: 10%;
   background-color: rgba(225, 225, 225, .9);
-  transition-duration: .6s;
 }
 
 .center {
@@ -162,6 +160,8 @@ ul {
 
 .submit-recipe-button {
   padding: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
   margin-left: 10px;
   background-color: #0fb9b1;
   border: 0px;
@@ -217,10 +217,3 @@ ul {
   background-color: rgba(225, 225, 225, .9);
   margin-right: 4em;
 }
-
-/*
-COLORS
-teal - #0fb9b1;
-frosted white - rgba(225, 225, 225, .9);
-grey - #95a5a6;
-red - #ee5253 */
