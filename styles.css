@@ -1,10 +1,219 @@
-/* font-family: 'Roboto', sans-serif;
+body {
+  background-image: url("./assets/burger-friends.jpg");
+  background-size: cover;
+  font-family: 'Roboto', sans-serif;
+  margin: 0px;
+}
 
-COLORS
-teal - #0fb9b1;
-frosted white - rgba(225, 225, 225, .9);
-grey - #95a5a6;
-red - #ee5253
+h2 {
+  text-align: center;
+}
 
-*/
+h3 {
+  color: #000808;
+  padding-top: 5px;
+  padding-left: 0px;
+  margin: 0px;
+  border: 0px;
+}
 
+li {
+  padding-bottom: 15px;
+  padding-left: 0px;
+}
+
+nav {
+  display: grid;
+  height: 2.6em;
+  background-color: #0fb9b1;
+  padding-top: 10px;
+  padding-left: 20px;
+  margin: 0px;
+  border: 0px;
+}
+
+ul {
+  padding: 20px;
+  list-style-type: none;
+}
+
+.add-recipe {
+  position: absolute;
+  right: 0px;
+  height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 20px;
+  border: 0px;
+  border-radius: 3px;
+}
+
+.add-recipe:hover {
+  background-color: #048c85;
+  color: white;
+}
+
+.asterisk {
+  display: inline;
+  color: red;
+}
+
+.box {
+  display: inline-block;
+  height: 22em;
+  width: 30em;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: rgba(225, 225, 225, .9);
+}
+
+.center {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  top: 50%;
+  left: 50%;
+}
+
+.clear-button {
+  background-color: #95a5a6;
+  color: rgba(225, 225, 225, .9);
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+  border: 0px;
+  border-radius: 5px;
+  padding: 8px;
+  padding-right: 23px;
+  width: 7em;
+  top: 85%;
+  right: 5%;
+}
+
+.clear-button:hover {
+  background-color: #0fb9b1;
+}
+
+.confirm-selection {
+  background-color: #0fb9b1;
+  border: 0px;
+  border-radius: 5px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-top: 5px;
+}
+
+.confirm-selection:hover {
+  padding-left: 29px;
+  padding-right: 29px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border: 1px solid blue;
+  box-shadow: 0px 0px 1px 1px white;
+}
+
+.content-boxes {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  padding: 5em;
+}
+
+.cookpot-image {
+  background-image: url(./assets/cookpot.svg);
+  display: block;
+  margin: auto;
+  position: relative;
+  height: 180px;
+  width: 140px;
+  top: 62%
+  bottom: 40%;
+}
+
+.generated-recipe {
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+}
+
+.hidden {
+  display: none;
+}
+
+.radio-buttons {
+  padding-left: 2em;
+}
+
+.recipe-form {
+  height: 30px;
+  padding-top: 15px;
+  padding-left: 20px;
+  padding-bottom: 5px;
+  background-color: rgba(225, 225, 225, .9);
+}
+
+.submit-recipe-button {
+  padding: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 10px;
+  background-color: #0fb9b1;
+  border: 0px;
+  border-radius: 5px;
+}
+
+.red {
+  background-color: #CC1E03;
+  color: white;
+  border: 0px;
+  border-radius: 5px;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+#recipe-box {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  padding-left
+  margin-left: 3em;
+}
+
+#recipe-name-field {
+  height: 20px;
+  border-color: #95a5a6;
+  border: 2px;
+  border-radius: 2px;
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+#recipe-prompt {
+  text-align: left;
+  margin-left: 1em;
+}
+
+#recipe-type-field {
+  height: 20px;
+  border-color: #95a5a6;
+  border: 2px;
+  border-radius: 2px;
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+#selection-box {
+  background-color: rgba(225, 225, 225, .9);
+  margin-right: 4em;
+}
