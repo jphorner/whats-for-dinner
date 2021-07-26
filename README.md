@@ -13,7 +13,7 @@
 - Add custom options to each recipe list by selecting *Add a Recipe* in the upper-right of the page
 
 ## Demonstration
-
+![recording (5)](https://user-images.githubusercontent.com/82003147/126919513-1450b400-d715-452b-a6d8-e9715c33f322.gif)
 
 ## Contributions
 
